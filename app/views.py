@@ -2,7 +2,7 @@ from app import app, models
 from .models import *
 from flask import render_template, Flask, redirect, url_for, session, request, escape
 
-
+#IGNORE FOR DATABASE
 @app.route("/")
 @app.route("/index")
 def index():
@@ -21,7 +21,7 @@ def index():
     else:
         return redirect("login")
 
-
+#RELEVANT TO DATABASE PROJECT
 @app.route("/login")
 def login():
     '''
@@ -48,7 +48,7 @@ def base():
     Displays dataset 
     '''
     print("WORKING")
-    return render_template("login.html", login=True)
+    return render_template("base.html", login=True)
 
 
 @app.route("/authenticate-login", methods=["POST"])
