@@ -42,8 +42,8 @@ def music():
     return render_template("music.html", login=True)
 
 
-@app.route("/rawdata", methods=['POST'])
-def rawdata():
+@app.route("/base", methods=['POST'])
+def base():
     '''
     Displays dataset 
     '''
