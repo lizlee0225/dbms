@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Parallax image -->
+<div id="index-banner" class="parallax-container">
+    <div class="parallax"><img src="{{ url_for('static', filename='musicbackground.jpg') }}"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <form method="post" action="{{url_for('music')}}" class="col s12">
+      <label>First Select Type of Search</label>
+        <select class="browser-default" name="typeofsearch" id="typeofsearch" value="">
+            <option selected>Search by</option>
+            <option value="artist">Artist</option>
+            <option value="region">Region</option>
+            <option value="label">Label</option>
+        </select>
+    <div class="row">
+        <div class="input-field col s12">
+          <input type="text" value="" name="searchbox">
+            <label for="searchbox"></label>
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Search
+        <i class="material-icons right">send</i>
+    </button>
+    </form>
+</div>
+</div>
+<br><br>
+<div class="container">
+  <div class="divider"></div>
+  <div class="section">
+    <h5>Or take a look at our entire collection of data!</h5>
+    <form method="post" action="{{url_for('rawdata')}}" class="col s12">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+        <i class="material-icons right">send</i>
+    </button></form>
+  </div>
+</div>
+
+<!-- <div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m6">
+                
+            </div>
+            <div class="col s12 m6">
+                <p>Raw Data </p>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Parallax image -->
+<!-- <div class="parallax-container valign-wrapper">
+    <div class="parallax"><img src="{{ url_for('static', filename='background2.jpg') }}"></div>
+</div> -->
+
+<!-- How does this work Section -->
+<!-- <div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center red-text text-lighten-2"><i class="material-icons">info</i></h2>
+                    <h5 class="center">What is IRate ISchool?</h5>
+                    <p class="light">IRate ISchool (no pun intended) is an application to bridge the gap between future careers of iSchoolers and courses relevant to those careers. We realize that course selection can be really hard, so we built an app were you can rate
+                        and review courses listed by career concentration.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center red-text text-lighten-2"><i class="material-icons">vpn_key</i></h2>
+                    <h5 class="center">Why "Sign in with Linkedin"?</h5>
+                    <p class="light">We want to ensure the quality of ratings and reviews. We believe that we can minimize bad behavior by ensuring that everyone's activities are tied to their professional identity on Linkedin.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center red-text text-lighten-2"><i class="material-icons">assignment_ind</i></h2>
+                    <h5 class="center">What do you do with Linkedin data?</h5>
+                    <p class="light">We only accesses your public profile information (id, name, profile pic). We don't do anything with your data other than simply display it to our members. We don't sell your data, or use it for ads etc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Main section -->
+<div id="index-banner" class="parallax-container review-parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <h1 class="header center red-text text-darken-1">{{ course_id }}. {{ course_name }}</h1>
+        </div>
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='background4.jpg') }}" class="bg-image bg-image-review"></div>
+</div>
+<!-- End Main section -->
+
+
+<div class="section">
+    <div class="container">
+
+        <!-- Reviews -->
+        {% if reviews %} {% for review in reviews %}
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <p> {{ review[6] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <div class="row">
+                            <div class="col s12">
+                                Reviewed by
+                                <div class="chip">
+                                    <img src="{{ review[5] }}" alt="Contact Person"> {{ review[4] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %} {% else %}
+        <h5> There are no reviews for this course! </h5> {% endif %}
+        <br><br>
+        <!-- End Reviews -->
+
+        <!-- Add a Review -->
+        <hr><br>
+        <h5>Please add a review for this course!</h5>
+        <br>
+        <form id="add-review" name="add-review" action="add-review" onsubmit="return validateAddReviewForm()" method="POST">
+            <input type="hidden" name="course_ref" id="course_ref" value="{{ course_ref }}">
+            <input type="hidden" name="course_id" id="course_id" value="{{ course_id }}">
+            <input type="hidden" name="course_name" id="course_name" value="{{ course_name }}">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-content grey lighten-5">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea placeholder="Your review" id="review" name="review" type="text" class="materialize-textarea validate"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action grey lighten-5">
+                            <button id="btn-add-review" class="btn-hidden" type="button">Add Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br><br>
+        <!-- End Add a Review -->
+
+    </div>
+</div>
+
+
+{% endblock %}
